@@ -62,7 +62,7 @@ public class RequestControllerTest {
 
 	@Test
 	public void postTrackWithCountSuccess() throws Exception {
-		Mockito.when(countDao.increment(5L)).thenReturn(10L);
+		Mockito.when(countDao.incrementCount(5L)).thenReturn(10L);
 
 		MockHttpServletRequestBuilder builder = MockMvcRequestBuilders.post("/track")
 				.contentType(MediaType.APPLICATION_JSON).accept(MediaType.APPLICATION_JSON).content("{\"count\":5}");

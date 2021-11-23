@@ -23,7 +23,8 @@ public class JsonUtils {
 	/**
 	 * Validates string input, if it is JSON.
 	 * 
-	 * (Most likely this method is not entirely bulletproof, but was chosen for simplicity)
+	 * (Most likely this method is not entirely bulletproof, but was chosen for
+	 * simplicity)
 	 * 
 	 * @param input
 	 * @return
@@ -75,11 +76,11 @@ public class JsonUtils {
 			throw new InvalidJsonException("Invalid JSON provided", e);
 		}
 	}
-	
+
 	/**
 	 * Method converting object to JSON string
 	 * 
-	 * @param key - key for the value
+	 * @param key   - key for the value
 	 * @param value - object to be converted to value
 	 * @return string representation of key/value pair
 	 */

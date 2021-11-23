@@ -30,11 +30,7 @@ public class RequestController {
 		return JsonUtils.valueToJSON("count", count);
 	}
 
-	/**
-	 * 
-	 * @param body
-	 * @return
-	 */
+
 	@PostMapping(path = "/track", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public String appendContent(@RequestBody String body) {
 		log.debug("track request; body: " + body);
@@ -49,7 +45,7 @@ public class RequestController {
 
 		Long newCount = null;
 		if (increment != null) {
-			newCount = countDao.increment(increment);
+			newCount = countDao.incrementCount(increment);
 		}
 
 		appenderDao.append(body);

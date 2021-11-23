@@ -10,15 +10,17 @@ public class RedisCountDaoImpl implements ICountDao {
 
 	@Autowired
 	protected RedisConfig config;
+	
+	private static final String COUNT = "count";
 
 	@Override
 	public long getCount() {
-		Long value = config.redisTemplate().opsForValue().get("count");
+		Long value = config.redisTemplate().opsForValue().get(COUNT);
 		return value != null ? value : 0L;
 	}
 
 	@Override
-	public long increment(long value) {
-		return config.redisTemplate().opsForValue().increment("count", value);
+	public long incrementCount(long value) {
+		return config.redisTemplate().opsForValue().increment(COUNT, value);
 	}
 }

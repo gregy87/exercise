@@ -15,7 +15,7 @@ import org.springframework.web.context.request.WebRequest;
 public class RestConfiguration {
 
 	public static final String TIME_FORMAT = "yyyy-MM-dd hh:mm:ss";
-	
+
 	/**
 	 * Overrides default error attributes
 	 * 

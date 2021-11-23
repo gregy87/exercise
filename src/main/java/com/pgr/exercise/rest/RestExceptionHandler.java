@@ -22,11 +22,11 @@ import com.pgr.exercise.exception.InvalidJsonException;
  */
 @ControllerAdvice
 public class RestExceptionHandler extends ResponseEntityExceptionHandler {
-	
+
 	/**
 	 * Handles {@link com.pgr.exercise.exception.InvalidJsonException}
 	 * 
-	 * @param e InvalidJsonException to be handled
+	 * @param e       InvalidJsonException to be handled
 	 * @param request
 	 * @return Response entity with bad request with added message
 	 * @throws IOException
@@ -38,27 +38,28 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
 		response.setStatus(HttpStatus.BAD_REQUEST.value());
 		response.setError(HttpStatus.BAD_REQUEST.toString());
 		response.setMessage(e.getMessage());
-		response.setPath(((ServletWebRequest)request).getRequest().getRequestURI().toString());
+		response.setPath(((ServletWebRequest) request).getRequest().getRequestURI().toString());
 		return new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.BAD_REQUEST);
 	}
-	
+
 	/**
 	 * Handles {@link com.pgr.exercise.exception.AppenderException}
 	 * 
-	 * @param e AppenderException to be handled
+	 * @param e       AppenderException to be handled
 	 * @param request
 	 * @return
 	 * @throws IOException
 	 */
 	@ExceptionHandler({ AppenderException.class })
-	public ResponseEntity<ApiResponse> handleInvalidAppenderException(Exception e, WebRequest request) throws IOException {
+	public ResponseEntity<ApiResponse> handleInvalidAppenderException(Exception e, WebRequest request)
+			throws IOException {
 		ApiResponse response = new ApiResponse();
 		response.setTimestamp(LocalDateTime.now());
 		response.setStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());
 		response.setError(HttpStatus.INTERNAL_SERVER_ERROR.toString());
 		response.setMessage(e.getMessage());
-		response.setPath(((ServletWebRequest)request).getRequest().getRequestURI().toString());
+		response.setPath(((ServletWebRequest) request).getRequest().getRequestURI().toString());
 		return new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR);
 	}
-	
+
 }
