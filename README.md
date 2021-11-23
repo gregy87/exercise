@@ -10,10 +10,12 @@
 
 ## How to build it
 Basic mvn commands like `mvn clean install` will work.
+
 War file will be created in `target` folder.
 
 ## How to run it
 For default configuration: `java -jar .\exercise-0.0.1-SNAPSHOT.war`
+
 For cutom configuration, create _config_ subdirectory of the current directory and plase your own _application.properties_ file there.
 
 ## Prerequisities (or at least what I worked with)
